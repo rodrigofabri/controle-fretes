@@ -165,6 +165,17 @@ function renderizarHistorico() {
 
             });
 
+            Object.keys(semanas).forEach(function (numeroSemana) {
+
+                semanas[numeroSemana].sort(function (a, b) {
+
+                    return new Date(a.data + "T00:00:00") -
+                        new Date(b.data + "T00:00:00");
+
+                });
+
+            });
+
             // CRIAR CADA SEMANA
             Object.keys(semanas).forEach(function (numeroSemana) {
 
@@ -259,10 +270,10 @@ function renderizarHistorico() {
 
                             <div>
 
-                                <h3>🚛 Frete</h3>
+                                <h3>🚛 ${frete.origem || "Origem não informada"} → ${frete.destino || "Destino não informado"}</h3>
 
                                 <span>
-                                    📅 ${frete.data}
+                                    📅 ${frete.data.split("-").reverse().join("/")}
                                 </span>
 
                             </div>
