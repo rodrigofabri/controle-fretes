@@ -1,0 +1,532 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6f9;
+    color: #1f2937;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+body > p {
+    margin-bottom: 25px;
+    color: #6b7280;
+}
+
+button {
+    padding: 12px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1e3a5f;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #162d4a;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cards > div {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cards h3 {
+    margin-bottom: 10px;
+}
+
+.cards p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+/* =========================
+   FORMULÁRIO DE NOVO FRETE
+   ========================= */
+
+.formulario {
+    max-width: 700px;
+    margin-top: 30px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.formulario h2 {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    color: #1e3a5f;
+}
+
+.formulario h2:first-child {
+    margin-top: 0;
+}
+
+.formulario label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.formulario input:focus,
+.formulario select:focus {
+    outline: none;
+    border-color: #1e3a5f;
+}
+
+.formulario button {
+    margin-top: 20px;
+}
+
+.resumo {
+    background-color: #f3f6f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.resumo p {
+    margin-bottom: 12px;
+}
+
+.resumo p:last-child {
+    margin-bottom: 0;
+    font-size: 20px;
+    color: #1e3a5f;
+}
+
+.titulo-despesas {
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #374151;
+}
+
+#listaDespesas {
+    background-color: #f3f6f9;
+    padding: 1px 15px;
+    border-radius: 10px;
+}
+
+#listaDespesas p {
+    margin-bottom: 8px;
+}
+
+#listaDespesas p:last-child {
+    margin-bottom: 0;
+}
+
+.item-despesa {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.item-despesa:last-child {
+    border-bottom: none;
+}
+
+.btn-excluir {
+    margin: 0;
+    padding: 7px 12px;
+    background-color: #dc2626;
+    font-size: 14px;
+}
+
+.btn-excluir:hover {
+    background-color: #b91c1c;
+}
+
+/* =========================
+   HISTÓRICO DE FRETES
+   ========================= */
+
+.historico {
+    max-width: 900px;
+    margin-top: 30px;
+}
+
+/* =========================
+   CARDS DOS FRETES
+   ========================= */
+
+.card-frete {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho-frete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.cabecalho-frete h3 {
+    margin-bottom: 7px;
+    color: #1e3a5f;
+    font-size: 20px;
+}
+
+.cabecalho-frete span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.valor-frete-card {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1e3a5f;
+}
+
+
+/* INFORMAÇÕES */
+
+.info-frete {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.info-frete > div {
+    background-color: #f3f6f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.info-frete span {
+    display: block;
+    color: #6b7280;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.info-frete strong {
+    font-size: 16px;
+    color: #1f2937;
+}
+
+
+/* RESULTADO */
+
+.resultado-frete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 17px 20px;
+    margin-bottom: 18px;
+
+    background-color: #eef4f9;
+    border-radius: 10px;
+}
+
+.resultado-frete span {
+    font-weight: bold;
+    color: #374151;
+}
+
+.resultado-frete strong {
+    font-size: 21px;
+    color: #1e3a5f;
+}
+
+
+/* BOTÃO EXCLUIR */
+
+.btn-excluir-frete {
+    margin: 0;
+    padding: 9px 15px;
+
+    background-color: #dc2626;
+    color: white;
+
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.btn-excluir-frete:hover {
+    background-color: #b91c1c;
+}
+
+/* =========================
+   RESUMO MENSAL
+   ========================= */
+
+.resumo-mes {
+    background-color: white;
+    padding: 25px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.resumo-mes p {
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.resumo-mes p:last-child {
+    margin-bottom: 0;
+    font-size: 22px;
+    color: #1e3a5f;
+}
+
+/* =========================
+   RESUMO SEMANAL
+   ========================= */
+
+.resumo-semana {
+    background-color: white;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.resumo-semana p {
+    margin: 0;
+    padding: 15px;
+    background-color: #f3f6f9;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+.resumo-semana strong {
+    display: block;
+    margin-top: 7px;
+    font-size: 19px;
+    color: #1e3a5f;
+}
+
+
+/* TÍTULO DAS SEMANAS */
+
+.historico > h2 {
+    margin-top: 35px;
+    margin-bottom: 15px;
+    color: #1e3a5f;
+}
+
+.historico > h2:first-child {
+    margin-top: 0;
+}
+
+/* =========================
+   TÍTULOS DO HISTÓRICO
+   ========================= */
+
+.titulo-mes {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+
+    border-bottom: 2px solid #1e3a5f;
+
+    color: #1e3a5f;
+    font-size: 28px;
+}
+
+.titulo-semana {
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+    color: #374151;
+    font-size: 21px;
+}
+
+.titulo-total-mes {
+    margin-top: 40px;
+    margin-bottom: 15px;
+
+    color: #1e3a5f;
+}
+
+/* =========================
+   MESES CLICÁVEIS
+   ========================= */
+
+.bloco-mes {
+    background-color: white;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+
+.cabecalho-mes {
+    padding: 22px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.cabecalho-mes:hover {
+    background-color: #f8fafc;
+}
+
+.cabecalho-mes h2 {
+    margin: 0 0 7px 0;
+    color: #1e3a5f;
+    font-size: 23px;
+}
+
+.cabecalho-mes p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.seta-mes {
+    font-size: 18px;
+    color: #1e3a5f;
+
+    transition: transform 0.25s;
+}
+
+/* CONTEÚDO */
+
+.conteudo-mes {
+    display: none;
+    padding: 0 25px 25px 25px;
+}
+
+/* MÊS ABERTO */
+
+.bloco-mes.mes-aberto .conteudo-mes {
+    display: block;
+}
+
+.bloco-mes.mes-aberto .seta-mes {
+    transform: rotate(180deg);
+}
+
+/* =========================
+   MESES NO PAINEL INICIAL
+   ========================= */
+
+.bloco-mes-index {
+    background-color: white;
+    margin-top: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* CABEÇALHO */
+
+.cabecalho-mes-index {
+    padding: 22px 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.cabecalho-mes-index:hover {
+    background-color: #f8fafc;
+}
+
+.cabecalho-mes-index h2 {
+    margin: 0 0 7px 0;
+
+    color: #1e3a5f;
+    font-size: 23px;
+}
+
+.cabecalho-mes-index p {
+    margin: 0;
+
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.seta-mes-index {
+    font-size: 18px;
+    color: #1e3a5f;
+
+    transition: transform 0.25s;
+}
+
+/* CONTEÚDO */
+
+.conteudo-mes-index {
+    display: none;
+
+    padding: 0 25px 25px 25px;
+}
+
+/* MÊS ABERTO */
+
+.bloco-mes-index.mes-aberto-index
+.conteudo-mes-index {
+    display: block;
+}
+
+.bloco-mes-index.mes-aberto-index
+.seta-mes-index {
+    transform: rotate(180deg);
+}

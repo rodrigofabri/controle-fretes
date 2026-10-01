@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Novo Frete - Controle de Fretes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>🚛 Novo Frete</h1>
+
+    <p>Cadastre as informações do frete realizado.</p>
+
+    <div class="formulario">
+
+        <h2>Informações do Frete</h2>
+
+        <label for="valorFrete">Valor do frete</label>
+        <input type="number" id="valorFrete" placeholder="Ex: 5000">
+
+        <label for="distancia">Distância da viagem (km)</label>
+        <input type="number" id="distancia" placeholder="Ex: 560">
+
+        <label for="data">Data do frete</label>
+        <input type="date" id="data">
+
+        <h2>Despesas</h2>
+
+        <p>O sistema calculará automaticamente o motorista e o diesel.</p>
+
+        <label for="despesa">Adicionar despesa</label>
+
+        <select id="despesa">
+            <option value="">Selecione uma despesa</option>
+            <option value="Pedágio">Pedágio</option>
+            <option value="Alimentação">Alimentação</option>
+            <option value="Manutenção">Manutenção</option>
+            <option value="Estacionamento">Estacionamento</option>
+            <option value="Hospedagem">Hospedagem</option>
+            <option value="Lavagem">Lavagem</option>
+            <option value="Outros">Outros</option>
+        </select>
+
+        <div id="campoOutro" style="display: none;">
+
+            <label for="nomeOutro">Nome da despesa</label>
+
+            <input
+                type="text"
+                id="nomeOutro"
+                placeholder="Ex: Descarga"
+            >
+
+        </div>
+
+        <label for="valorDespesa">Valor da despesa</label>
+
+        <input
+            type="number"
+            id="valorDespesa"
+            placeholder="Ex: 180"
+        >
+
+        <button type="button" id="btnAdicionarDespesa">
+            Adicionar despesa
+        </button>
+
+        <h3 class="titulo-despesas">Despesas adicionadas</h3>
+
+        <div id="listaDespesas"></div>
+
+        <h2>Resumo</h2>
+
+        <div class="resumo">
+            <p>Valor do frete: <strong id="valorFreteResumo">R$ 0,00</strong></p>
+            <p>Motorista (13%): <strong id="valorMotorista">R$ 0,00</strong></p>            
+            <p>Diesel: <strong id="valorDiesel">R$ 0,00</strong></p>
+            <p>Despesas adicionais: <strong id="valorDespesasAdicionais">R$ 0,00</strong></p>
+            <p>Total de despesas: <strong id="totalDespesas">R$ 0,00</strong></p>
+            <p>Resultado: <strong id="resultado">R$ 0,00</strong></p>
+        </div>
+
+        <br>
+
+        <button type="button" id="btnSalvarFrete">💾 Salvar Frete</button>
+
+        <button type="button" onclick="window.location.href='index.html'">
+            Voltar
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
