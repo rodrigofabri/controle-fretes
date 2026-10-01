@@ -126,9 +126,11 @@ btnAdicionarDespesa.addEventListener("click", function () {
     }
 
     const novaDespesa =
-        document.createElement("div");
+    document.createElement("div");
 
-    novaDespesa.classList.add("item-despesa");
+novaDespesa.classList.add("item-despesa");
+
+novaDespesa.dataset.valor = valor;
 
     novaDespesa.innerHTML = `
         <span>
@@ -166,7 +168,21 @@ listaDespesas.addEventListener("click", function (evento) {
         evento.target.classList.contains("btn-excluir")
     ) {
 
-        evento.target.parentElement.remove();
+        const item = evento.target.parentElement;
+
+        const valor = Number(item.dataset.valor);
+
+        totalDespesasAdicionais -= valor;
+
+        valorDespesasAdicionais.textContent =
+            "R$ " +
+            totalDespesasAdicionais
+                .toFixed(2)
+                .replace(".", ",");
+
+        atualizarTotalDespesas();
+
+        item.remove();
 
     }
 
@@ -321,13 +337,38 @@ btnSalvarFrete.addEventListener("click", function () {
 
 
     // =========================
-    // SALVAR
-    // =========================
+// SALVAR OU EDITAR
+// =========================
 
-    let fretes =
-        JSON.parse(
-            localStorage.getItem("fretes")
-        ) || [];
+let fretes =
+    JSON.parse(
+        localStorage.getItem("fretes")
+    ) || [];
+
+const freteEditando =
+    localStorage.getItem("freteEditando");
+
+if (freteEditando !== null) {
+
+    const id = Number(freteEditando);
+
+    fretes[id] = frete;
+
+    localStorage.setItem(
+        "fretes",
+        JSON.stringify(fretes)
+    );
+
+    localStorage.removeItem("freteEditando");
+
+    alert(
+        "✅ FRETE ALTERADO COM SUCESSO!\n\n" +
+        origem +
+        " → " +
+        destino
+    );
+
+} else {
 
     fretes.push(frete);
 
@@ -336,13 +377,14 @@ btnSalvarFrete.addEventListener("click", function () {
         JSON.stringify(fretes)
     );
 
-
     alert(
         "✅ FRETE SALVO COM SUCESSO!\n\n" +
         origem +
         " → " +
         destino
     );
+
+}
 
 
     // =========================
@@ -404,5 +446,48 @@ if (listaFretes) {
 
     console.log(fretesSalvos);
 
+}
+
+// =========================
+// CARREGAR FRETE PARA EDIÇÃO
+// =========================
+
+const freteEditando =
+    localStorage.getItem("freteEditando");
+
+if (freteEditando !== null) {
+
+    const fretes =
+        JSON.parse(
+            localStorage.getItem("fretes")
+        ) || [];
+
+    const frete =
+        fretes[Number(freteEditando)];
+
+    if (frete) {
+
+        valorFrete.value = frete.valor;
+
+        distancia.value = frete.distancia;
+
+        document.getElementById("origem").value =
+            frete.origem || "";
+
+        document.getElementById("destino").value =
+            frete.destino || "";
+
+        document.getElementById("data").value =
+            frete.data || "";
+
+        valorFrete.dispatchEvent(
+            new Event("input")
+        );
+
+        distancia.dispatchEvent(
+            new Event("input")
+        );
+
+    }
 }
 

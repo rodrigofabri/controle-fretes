@@ -342,12 +342,23 @@ function renderizarHistorico() {
 
                         </div>
 
+                        <div class="acoes-frete">
+
+                        <button
+                            type="button"
+                            class="btn-editar-frete"
+                        >
+                            ✏️ Editar
+                        </button>
+
                         <button
                             type="button"
                             class="btn-excluir-frete"
                         >
-                            🗑️ Excluir frete
+                            🗑️ Excluir
                         </button>
+
+                    </div>
 
                     `;
 
@@ -438,6 +449,25 @@ function renderizarHistorico() {
 }
 
 listaFretes.addEventListener("click", function (evento) {
+
+    if (
+        evento.target.classList.contains("btn-editar-frete")
+    ) {
+
+        const card = evento.target.closest(".card-frete");
+
+        const id = Number(card.dataset.id);
+
+        localStorage.setItem(
+            "freteEditando",
+            id
+        );
+
+        window.location.href = "novo-frete.html";
+
+        return;
+    }
+
 
     if (
         evento.target.classList.contains("btn-excluir-frete")

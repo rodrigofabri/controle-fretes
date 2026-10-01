@@ -589,3 +589,23 @@ h2 {
 .resumo-semana p:nth-child(4) {
     background-color: #eff6ff;
 }
+
+.acoes-frete {
+    display: flex;
+    gap: 10px;
+}
+
+.acoes-frete button {
+    margin: 0;
+    padding: 9px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.btn-editar-frete {
+    background-color: #2563eb;
+}
+
+.btn-editar-frete:hover {
+    background-color: #1d4ed8;
+}
